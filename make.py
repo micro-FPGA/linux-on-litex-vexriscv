@@ -159,6 +159,30 @@ class De0Nano(Board):
         prog = USBBlaster()
         prog.load_bitstream("build/de0nano/gateware/top.sof")
 
+# C10LP RefKit support -------------------------------------------------------------------------------
+#
+# does not show BIOS prompt, without -linux would work ok?
+
+class C10LPRefKit(Board):
+    def __init__(self):
+        from litex_boards.partner.targets import c10lprefkit
+        Board.__init__(self, c10lprefkit.BaseSoC, "serial")
+
+    def load(self):
+        from litex.build.altera import USBBlaster
+        prog = USBBlaster()
+        prog.load_bitstream("build/c10lprefkit/gateware/top.sof")
+#
+#class CYC1000(Board):
+#    def __init__(self):
+#        from litex_boards.partner.targets import cyc1000
+#        Board.__init__(self, cyc1000.BaseSoC, "serial")
+#
+#    def load(self):
+#        from litex.build.altera import USBBlaster
+#        prog = USBBlaster()
+#        prog.load_bitstream("build/cyc1000/gateware/top.sof")
+
 # Main ---------------------------------------------------------------------------------------------
 
 supported_boards = {
@@ -175,6 +199,8 @@ supported_boards = {
     "ulx3s":        ULX3S,
     # Altera/Intel
     "de0nano":      De0Nano,
+    "c10lprefkit":  C10LPRefKit,
+    "cyc1000":      CYC1000,
 }
 
 def main():
