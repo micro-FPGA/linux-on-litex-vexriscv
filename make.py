@@ -173,15 +173,15 @@ class C10LPRefKit(Board):
         prog = USBBlaster()
         prog.load_bitstream("build/c10lprefkit/gateware/top.sof")
 #
-#class CYC1000(Board):
-#    def __init__(self):
-#        from litex_boards.partner.targets import cyc1000
-#        Board.__init__(self, cyc1000.BaseSoC, "serial")
-#
-#    def load(self):
-#        from litex.build.altera import USBBlaster
-#        prog = USBBlaster()
-#        prog.load_bitstream("build/cyc1000/gateware/top.sof")
+class CYC1000(Board):
+    def __init__(self):
+        from litex_boards.partner.targets import cyc1000
+        Board.__init__(self, cyc1000.BaseSoC, "serial")
+
+    def load(self):
+        from litex.build.altera import USBBlaster
+        prog = USBBlaster()
+        prog.load_bitstream("build/cyc1000/gateware/top.sof")
 
 # Main ---------------------------------------------------------------------------------------------
 
